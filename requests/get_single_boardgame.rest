@@ -1,1 +1,1 @@
-GET http://localhost:3001/api/boardgames/Gloomhaven
+GET http://localhost:3001/api/boardgames/title/62363c76b85adb2de2777e6e

@@ -1,0 +1,8 @@
+PUT http://localhost:3001/api/boardgames/title/62363ef42e2ab7855920b333
+Content-Type: application/json
+
+{
+    "name": "Really Real Board Game",
+    "image_url": "image here",
+    "expansions": ["Real x2", "Tres Real"]
+}

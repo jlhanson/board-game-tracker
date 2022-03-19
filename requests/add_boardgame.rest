@@ -1,6 +1,6 @@
-POST http://localhost:3001/api/boardgames
+POST http://localhost:3001/api/boardgames/title
 Content-Type: application/json
 
 {
-    "name": "Gloomhaven"
+    "name": "Realy Board Game"
 }

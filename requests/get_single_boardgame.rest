@@ -1,1 +1,1 @@
-GET http://localhost:3001/api/boardgames/title/62363c76b85adb2de2777e6e
+GET http://localhost:3001/api/boardgames/6234fdfbb988d590169ccea3

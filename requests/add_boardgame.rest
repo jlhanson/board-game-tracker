@@ -1,6 +1,7 @@
-POST http://localhost:3001/api/boardgames/title
+POST http://localhost:3001/api/boardgames
 Content-Type: application/json
 
 {
-    "name": "Realy Board Game"
+    "name": "",
+    "expansions": ["once upon a time", "this failed"]
 }

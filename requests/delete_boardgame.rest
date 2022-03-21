@@ -1,1 +1,1 @@
-DELETE http://localhost:3001/api/boardgames/title/623630de623880388778a544
+DELETE http://localhost:3001/api/boardgames/623630de623880388778a544

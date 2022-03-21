@@ -1,4 +1,4 @@
-PUT http://localhost:3001/api/boardgames/title/62363ef42e2ab7855920b333
+PUT http://localhost:3001/api/boardgames/62363ef42e2ab7855920b333
 Content-Type: application/json
 
 {

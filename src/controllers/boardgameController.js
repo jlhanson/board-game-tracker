@@ -1,13 +1,13 @@
 const Boardgame = require('../models/boardgame')
 
-// display all boardgame titles
+// Display all boardgame titles
 exports.boardgame_list = function(req, res) {
 	Boardgame.find({}).then(boardgames => {
 		res.json(boardgames)
 	})
 }
 
-// display one boardgame title
+// Display one boardgame title
 exports.boardgame_detail = function(req, res, next) {
 	Boardgame.findById(req.params.id)
 		.then(boardgame => {
@@ -26,14 +26,15 @@ exports.boardgame_create = function(req, res, next) {
 
 	const boardgame = new Boardgame({
 		name: body.name,
-		image_url: body.image_url || '',
-		expansions: body.expansions || [],
-		tags: body.tags || []
+		image_url: body.image_url,
+		expansions: body.expansions,
+		tags: body.tags
 	})
 
-	boardgame.save().then(savedBoardgame => {
-		res.status(201).json(savedBoardgame)
-	})
+	boardgame.save()
+		.then(savedBoardgame => {
+			res.status(201).json(savedBoardgame)
+		})
 		.catch(error => next(error))
 }
 
@@ -41,7 +42,6 @@ exports.boardgame_create = function(req, res, next) {
 exports.boardgame_delete = function(req, res, next) {
 	Boardgame.findByIdAndRemove(req.params.id)
 		.then(result => {
-			console.log(result)
 			res.status(204).end()
 		})
 		.catch(error => next(error))

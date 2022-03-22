@@ -2,15 +2,17 @@ const mongoose = require('mongoose')
 
 const userCollectionSchema = new mongoose.Schema({
 	username: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-	owned: {
+	owned: [{
+		id: { type: mongoose.ObjectId },
 		name: { type: mongoose.Schema.Types.ObjectId, ref: 'Boardgame' },
 		gameStats: {
-			plays: { type: Number },
-			wins: { type: Number },
+			plays: Number ,
+			wins: Number,
 		},
-		rating: { type: Number }
-	},
-	wishlist: { type: mongoose.Schema.Types.ObjectId, ref: 'Boardgame' }
+		rating: Number,
+		active: Boolean
+	}],
+	wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Boardgame' }]
 })
 
 module.exports = mongoose.model('User_Collection', userCollectionSchema)

@@ -16,7 +16,7 @@ router.put('/:id', boardgame_controller.boardgame_update)
 // GET request for one boardgame title
 router.get('/:id', boardgame_controller.boardgame_detail)
 
-// POST request for all boardgame titles
+// GET request for all boardgame titles
 router.get('/', boardgame_controller.boardgame_list)
 
 module.exports = router

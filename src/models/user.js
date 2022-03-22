@@ -6,14 +6,11 @@ const SALT_WORK_FACTOR = 10
 const userSchema = new mongoose.Schema({
 	username: { type: String, requried: true, index: { unique: true } },
 	password: { type: String, required: true },
-	name: String,
-	email: {
-		type: String,
-		unique: true
-	},
-	bg_collection: { type: mongoose.Schema.Types.ObjectId, ref: 'UserCollection' },
+	fullName: String,
+	email: { type: String, unique: true },
+	userCollection: { type: mongoose.Schema.Types.ObjectId, ref: 'UserCollection' },
 	wishlist: { type: mongoose.Schema.Types.ObjectId, ref: 'UserCollection' },
-	account_date: { type: Date, default: Date.now },
+	account_date: { type: Date, default: Date.now }
 })
 
 userSchema.pre('save', function(next) {

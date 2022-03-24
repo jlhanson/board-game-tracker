@@ -11,7 +11,10 @@ router.post('/', user_controller.user_create)
 router.delete('/:id', user_controller.user_delete)
 
 // PUT request for updating user
-router.put('/:id', user_controller.user_update)
+router.put('/:id', user_controller.user_replace)
+
+// PATCH request for updating partial user
+router.patch('/:id', user_controller.user_update)
 
 // GET request for one user
 router.get('/:id', user_controller.user_detail)

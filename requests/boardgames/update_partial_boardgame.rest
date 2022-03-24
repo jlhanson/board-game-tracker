@@ -1,0 +1,7 @@
+PATCH http://localhost:3001/api/boardgames/6234fdfbb988d590169ccea3
+Content-Type: application/json
+
+{
+	"expansions": ["Forgotten Circles"],
+	"tags": ["Cooperative", "Hand Management", "Legacy Game"]
+}

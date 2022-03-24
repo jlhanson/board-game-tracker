@@ -11,7 +11,10 @@ router.post('/', boardgame_controller.boardgame_create)
 router.delete('/:id', boardgame_controller.boardgame_delete)
 
 // PUT request for updating boardgame
-router.put('/:id', boardgame_controller.boardgame_update)
+router.put('/:id', boardgame_controller.boardgame_replace)
+
+// PATCH request for updating partial boardgame
+router.patch('/:id', boardgame_controller.boardgame_update)
 
 // GET request for one boardgame title
 router.get('/:id', boardgame_controller.boardgame_detail)

@@ -41,14 +41,14 @@ exports.boardgame_create = function(req, res, next) {
 // Handle boardgame delete on DELETE
 exports.boardgame_delete = function(req, res, next) {
 	Boardgame.findByIdAndRemove(req.params.id)
-		.then(result => {
+		.then(() => {
 			res.status(204).end()
 		})
 		.catch(error => next(error))
 }
 
 // Handle boardgame update on PUT
-exports.boardgame_update = function(req, res, next) {
+exports.boardgame_replace = function(req, res, next) {
 	const { name, image_url, expansions, tags } = req.body
 
 	Boardgame.findByIdAndUpdate(req.params.id,
@@ -59,3 +59,17 @@ exports.boardgame_update = function(req, res, next) {
 		})
 		.catch(error => next(error))
 }
+
+// Handle boardgame update on PATCH
+exports.boardgame_update = function(req, res, next) {
+	const { image_url, expansions, tags } = req.body
+
+	Boardgame.findByIdAndUpdate(req.params.id,
+		{ image_url, expansions, tags },
+		{ new: true, runValidators: true, context: 'query' })
+		.then(updatedBoardgame => {
+			res.json(updatedBoardgame)
+		})
+		.catch(error => next(error))
+}
+

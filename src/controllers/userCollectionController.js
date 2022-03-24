@@ -40,13 +40,27 @@ exports.userCollection_create = function(req, res, next) {
 // Handle userCollection delete on DELETE
 exports.userCollection_delete = function(req, res, next) {
 	UserCollection.findByIdAndRemove(req.params.id)
-		.then(result => {
+		.then(() => {
 			res.send(204).end()
 		})
 		.catch(error => next(error))
 }
 
 // Handle userCollection update on PUT
+exports.userCollection_replace = function(req, res, next) {
+	const { username, name, plays, wins, rating,
+		active, wishlist } = req.body
+
+	UserCollection.findByIdAndUpdate(req.params.id,
+		{ username, name, plays, wins, rating, active, wishlist },
+		{ new: true, runValidators: true, context: 'query' })
+		.then(updatedUserCollection => {
+			res.json(updatedUserCollection)
+		})
+		.catch(error => next(error))
+}
+
+// Handle userCollection update on PATCH
 exports.userCollection_update = function(req, res, next) {
 	const { username, name, plays, wins, rating,
 		active, wishlist } = req.body

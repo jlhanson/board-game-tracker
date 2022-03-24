@@ -6,11 +6,11 @@ const userCollectionSchema = new mongoose.Schema({
 		id: { type: mongoose.ObjectId },
 		name: { type: mongoose.Schema.Types.ObjectId, ref: 'Boardgame' },
 		gameStats: {
-			plays: Number ,
+			plays: Number,
 			wins: Number,
 		},
 		rating: Number,
-		active: Boolean
+		active: Boolean,
 	}],
 	wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Boardgame' }]
 })

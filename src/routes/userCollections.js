@@ -11,7 +11,10 @@ router.post('/', userCollection_controller.userCollection_create)
 router.delete('/:id', userCollection_controller.userCollection_delete)
 
 // PUT request for updating userCollection
-router.put('/:id', userCollection_controller.userCollection_update)
+router.put('/:id', userCollection_controller.userCollection_replace)
+
+// PATCH request for updating partial userCollection
+router.patch('/:id', userCollection_controller.userCollection_update)
 
 // GET request for one userCollection
 router.get('/:id', userCollection_controller.userCollection_detail)

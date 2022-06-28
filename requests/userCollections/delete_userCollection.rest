@@ -1,1 +1,0 @@
-DELETE http://localhost:3001/api/collection/623a4459bb528aa76c6c18a5

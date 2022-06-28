@@ -4,12 +4,18 @@ const SALT_WORK_FACTOR = 10
 
 // hashing passwords taken from: https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1
 const userSchema = new mongoose.Schema({
-	username: { type: String, requried: true, index: { unique: true } },
+	username: { type: String, requried: true, index: { unique: true }, trim: true },
 	password: { type: String, required: true },
-	fullName: String,
-	email: { type: String, unique: true },
-	userCollection: { type: mongoose.Schema.Types.ObjectId, ref: 'UserCollection' },
-	wishlist: { type: mongoose.Schema.Types.ObjectId, ref: 'UserCollection' },
+	fullName: { type: String, trim: true },
+	email: { type: String, unique: true, trim: true },
+	userCollection: [{
+		boardgame: { type: mongoose.Schema.Types.ObjectId, ref: 'Boardgame', unique: true },
+		plays: Number,
+		wins: Number,
+		rating: Number,
+		active: Boolean
+	}],
+	wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Boardgame' }],
 	account_date: { type: Date, default: Date.now }
 })
 
@@ -38,6 +44,10 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 		if (err) return cb(err)
 		cb(null, isMatch)
 	})
+}
+
+userSchema.methods.validatePassword = async function validatePassword(data) {
+	return bcrypt.compare(data, this.password)
 }
 
 module.exports = mongoose.model('User', userSchema)

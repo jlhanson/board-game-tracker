@@ -5,5 +5,8 @@ Content-Type: application/json
 	"username": "Smith",
 	"password": "Agent",
 	"fullName": "Agent Smith",
-	"email": "smith@agent.edu"
+	"email": "smith@agent.edu",
+	"userCollection": [{
+	}],
+	"wishlist": []
 }

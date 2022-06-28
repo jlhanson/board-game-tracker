@@ -1,0 +1,12 @@
+PATCH http://localhost:3001/api/user/collection/623c994eae269121f03f15bc
+Content-Type: application/json
+
+{
+	"userCollection": {
+		"boardgame": "6234fdfbb988d590169ccea3",
+		"plays": 6,
+		"wins": 4,
+		"rating": 5,
+		"active": true
+	}
+}
